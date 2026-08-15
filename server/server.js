@@ -67,7 +67,15 @@ io.on("connection",(socket)=>{
 
 //MIddleware setup
 app.use(express.json({ limit: "10mb" }));
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://chat-app-web-lovat.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 //Routes setup
 app.use("/api/status", (req, res) => res.send("server is live"));

@@ -77,6 +77,7 @@ app.use(
   })
 );
 
+
 //Routes setup
 app.use("/api/status", (req, res) => res.send("server is live"));
 app.use("/api/auth", userRouter);
